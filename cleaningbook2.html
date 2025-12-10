@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="phone">
+
+        <!-- IMAGE SLIDER -->
+        <div class="slider-wrapper">
+            <div class="slider">
+                <img src="https://i.ibb.co/pKz7jNs/illustration.png">
+                <img src="https://i.ibb.co/pKz7jNs/illustration.png">
+                <img src="https://i.ibb.co/pKz7jNs/illustration.png">
+            </div>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="content">
+
+            <div class="title-row">
+                <h2 id="myTitle">House </h2>
+            </div>
+
+            <div class="provider-info">
+                <h3 class="provider-name">Jenny Wilson</h3>
+
+                <div class="rating">
+                    <i class="fa-solid fa-star star"></i>
+                    <span>4.8 (4,479 reviews)</span>
+                </div>
+            </div>
+
+            <div class="tags">
+                <span class="tag">Cleaning</span>
+                <span class="tag location">
+                    <i class="fa-solid fa-location-dot"></i>
+                    255 Grand Park Avenue, New York
+                </span>
+            </div>
+
+            <p class="price">$20 <small>(Floor price)</small></p>
+
+            <h3 class="section-title">About Me</h3>
+            <p class="about">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+
+        </div>
+
+        <!-- BUTTONS -->
+        <div class="btn-row">
+            <a class="msg-btn" href="https://wa.me/916381893332?text=Hi Bro" id="m">Message</a>
+            <button class="book-btn" onclick="document.location='muthubook2.html'">Book Now</button>
+        </div>
+
+    </div>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+<script>
+    // ---- Firebase Config ----
+    const firebaseConfig = {
+        apiKey: "AIzaSyCqFIyVhPXx1r5W4fJM4nOii09AIxi0vKQ",
+        authDomain: "contactform-85948.firebaseapp.com",
+        databaseURL: "https://contactform-85948-default-rtdb.firebaseio.com",
+        projectId: "contactform-85948",
+        storageBucket: "contactform-85948.firebasestorage.app",
+        messagingSenderId: "901007557564",
+        appId: "1:901007557564:web:25b92b3224f24d85be21b9"
+    };
+
+
+
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    // ---- Save H2 Text on Click ----
+    document.getElementById("myTitle").onclick = function () {
+        const h2text = this.innerText;  // Get H2 content
+
+        db.ref("savedTitles").push({
+            title: h2text,
+            time: new Date().toLocaleString()
+        });
+
+        document.getElementById("status").innerText = "Saved: " + h2text;
+    };
+</script>
+</body>
+
+</html>
+
+<style>
+    body {
+        background: #000;
+        display: flex;
+        justify-content: center;
+        padding-top: 10px;
+        font-family: "Poppins", sans-serif;
+    }
+
+    /* PHONE CONTAINER */
+    .phone {
+        width: 390px;
+        height: 650px;
+        background: #1c1c22;
+        border-radius: 22px;
+        overflow: hidden;
+        box-shadow: 0 0 25px rgba(160, 80, 255, 0.4);
+        border: 1px solid #2c2c34;
+    }
+
+    /* SLIDER */
+    .slider-wrapper {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .slider {
+        display: flex;
+        gap: 18px;
+        padding: 20px 15px;
+        animation: slide 13s linear infinite;
+    }
+
+    .slider img {
+        width: 88%;
+        border-radius: 18px;
+        box-shadow: 0 0 15px rgba(100, 0, 255, 0.3);
+        transition: 0.3s;
+    }
+
+    .slider img:hover {
+        transform: scale(1.02);
+    }
+
+    @keyframes slide {
+        0% {
+            transform: translateX(0);
+        }
+
+        33% {
+            transform: translateX(-320px);
+        }
+
+        66% {
+            transform: translateX(-640px);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    /* CONTENT */
+    .content {
+        padding: 18px 22px;
+        color: white;
+    }
+
+    .title-row h2 {
+        font-size: 26px;
+        font-weight: 600;
+        color: #e8d4ff;
+        letter-spacing: 0.4px;
+    }
+
+    /* PROVIDER INFO */
+    .provider-info {
+        margin-top: 6px;
+    }
+
+    .provider-name {
+        color: #ce9eff;
+        font-size: 18px;
+        margin-bottom: 4px;
+    }
+
+    .rating {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: #e0e0e0;
+    }
+
+    .star {
+        color: #ffdd52;
+    }
+
+    /* TAGS */
+    .tags {
+        display: flex;
+        gap: 12px;
+        margin-top: 12px;
+        flex-wrap: wrap;
+    }
+
+    .tag {
+        background: #2b2832;
+        padding: 6px 12px;
+        border-radius: 10px;
+        font-size: 13px;
+        color: #dcb6ff;
+    }
+
+    .location i {
+        margin-right: 5px;
+    }
+
+    /* PRICE */
+    .price {
+        color: #e0aaff;
+        margin-top: 18px;
+        font-size: 22px;
+    }
+
+    .price small {
+        color: #aaa;
+        font-size: 13px;
+    }
+
+    /* ABOUT */
+    .section-title {
+        margin-top: 18px;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .about {
+        font-size: 14px;
+        color: #ccc;
+        margin-top: 5px;
+        line-height: 1.6;
+        padding-right: 4px;
+    }
+
+    /* BUTTONS */
+    .btn-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        margin-top: -40px;
+
+    }
+
+    .msg-btn,
+    .book-btn {
+        width: 40%;
+        padding: 17px;
+        border-radius: 18px;
+        text-align: center;
+        font-size: 16px;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        font-weight: 500;
+        transition: 0.25s ease;
+    }
+
+    /* Messages Button */
+    .msg-btn {
+        background: #a855f7;
+        color: #fff;
+
+    }
+
+    .msg-btn:hover {
+        background: #b266ff;
+    }
+
+    /* Book Button */
+    .book-btn {
+        background: #a855f7;
+        color: #fff;
+        box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+        width: 47%;
+
+    }
+
+    .book-btn:hover {
+        background: #b266ff;
+    }
+
+    /* #m {
+        text-decoration: none;
+        color: white;
+        width: 40%;
+        padding: 17px;
+        background: #A855F7;
+        border: none;
+        color: #fff;
+        text-align: center;
+        border-radius: 18px;
+        font-size: 15px;
+
+
+    } */
+</style>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Services UI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            padding: 25px 0;
+        }
+
+        .app {
+            width: 360px;
+            background: #0f0f10;
+            padding: 20px;
+            height: 700px;
+            border-radius: 35px;
+            box-shadow: 0 0 35px rgba(165, 120, 255, 0.5);
+            overflow: hidden;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 10px;
+        }
+
+        .welcome {
+            color: #d2cfcf;
+            font-size: 15px;
+            margin: 0;
+        }
+
+        .username {
+            font-size: 25px;
+            font-weight: 600;
+            margin: 0;
+            margin-top: 3px;
+            color: #ffe7c4;
+        }
+
+        .top-bar .right i {
+            font-size: 20px;
+            margin-left: 15px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .top-bar .right i:hover {
+            color: #b788ff;
+        }
+
+        /* Section Title */
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 5px 10px 5px;
+        }
+
+        .section-title a {
+            color: #b788ff;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        /* Offer Card */
+        .offer-card {
+            background: linear-gradient(45deg, #8a32ff, #534aff);
+            padding: 22px;
+            border-radius: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 10px 25px rgba(130, 70, 255, 0.3);
+        }
+
+        .offer-left h1 {
+            margin: 0;
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .offer-left p {
+            margin: 5px 0;
+            font-size: 17px;
+        }
+
+        .offer-left span {
+            font-size: 12px;
+            opacity: 0.85;
+        }
+
+        .offer-img {
+            width: 105px;
+            margin-right: -5px;
+        }
+
+        /* Services */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-top: 15px;
+        }
+
+        .service-item {
+            background: #19191b;
+            padding: 16px 5px;
+            border-radius: 16px;
+            text-align: center;
+            transition: 0.25s;
+            cursor: pointer;
+        }
+
+        .service-item:hover {
+            transform: translateY(-4px);
+            background: #202022;
+        }
+
+        .service-item i {
+            font-size: 22px;
+        }
+
+        .service-item p {
+            margin: 8px 0 0;
+            font-size: 12px;
+        }
+
+        /* Colors */
+        .purple i {
+            color: #c68aff;
+        }
+
+        .orange i {
+            color: #ff9f45;
+        }
+
+        .blue i {
+            color: #53b6ff;
+        }
+
+        .yellow i {
+            color: #ffd369;
+        }
+
+        .red i {
+            color: #ff6767;
+        }
+
+        .green i {
+            color: #56e78f;
+        }
+
+        /* Bottom Nav */
+        .bottom-nav {
+            background: #151515;
+            padding: 14px;
+            border-radius: 30px;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+        }
+
+        .nav-item {
+            text-align: center;
+            flex: 1;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .nav-item i {
+            font-size: 20px;
+        }
+
+        .nav-item:hover i,
+        .nav-item:hover p {
+            color: #b788ff;
+        }
+
+        .nav-item p {
+            font-size: 12px;
+            margin-top: 4px;
+        }
+
+        /* .active i,
+        .active p {
+            color: #b788ff;
+        } */
+    </style>
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Top Section -->
+        <div class="top-bar">
+            <div>
+                <p class="welcome">Good Morning 👋</p>
+                <h3 class="username"></h3>
+            </div>
+
+            <div class="right">
+                <i class="fa-regular fa-bell"></i>
+                <i class="fa-regular fa-user"></i>
+            </div>
+        </div>
+
+        <!-- Special Offer -->
+        <div class="section-title">
+            <h3>Special Offers</h3>
+            <a href="#">See All</a>
+        </div>
+
+        <div class="offer-card">
+            <div class="offer-left">
+                <h1>30%</h1>
+                <p>Today's Special!</p>
+                <span>Valid for all services today only</span>
+            </div>
+            <img src="https://i.ibb.co/4mXgFzm/cleaner.png" class="offer-img">
+        </div>
+
+        <!-- Services -->
+        <div class="section-title">
+            <h3>Services</h3>
+            <a href="#">See All</a>
+        </div>
+
+        <div class="service-grid">
+
+            <div class="service-item purple" onclick="location='cleaning.html'">
+                <i class="fa-solid fa-broom"></i>
+                <p>Cleaning</p>
+            </div>
+
+            <div class="service-item orange" onclick="location='reairing.html'">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                <p>Repairing</p>
+            </div>
+
+            <div class="service-item blue" onclick="location='painiting.html'">
+                <i class="fa-solid fa-brush"></i>
+                <p>Painting</p>
+            </div>
+
+            <div class="service-item yellow" onclick="location='laundry.html'">
+                <i class="fa-solid fa-shirt"></i>
+                <p>Laundry</p>
+            </div>
+
+            <div class="service-item red" onclick="location='appliance.html'">
+                <i class="fa-solid fa-toolbox"></i>
+                <p>Appliance</p>
+            </div>
+
+            <div class="service-item green" onclick="location='plumbing.html'">
+                <i class="fa-solid fa-wrench"></i>
+                <p>Plumbing</p>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <div class="nav-item active" onclick="location='home.html'">
+                <i class="fa-solid fa-house"></i>
+                <p>Home</p>
+            </div>
+
+            <div class="nav-item" onclick="location='bookingpage.html'">
+                <i class="fa-regular fa-calendar-check"></i>
+                <p>Bookings</p>
+            </div>
+
+            <div class="nav-item" onclick="location='muthuvel.html'">
+                <i class="fa-regular fa-calendar"></i>
+                <p>Calendar</p>
+            </div>
+
+            <div class="nav-item">
+                <i class="fa-regular fa-envelope"></i>
+                <p>Inbox</p>
+            </div>
+
+            <div class="nav-item">
+                <i class="fa-regular fa-user"></i>
+                <p>Profile</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    window.onload = function () {
+        let name = localStorage.getItem("username");
+        if (name) document.querySelector(".username").textContent = name;
+    }
+</script>
+
+</html>
